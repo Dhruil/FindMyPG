@@ -172,7 +172,7 @@ export function AddPG() {
     setIsSubmitting(true);
 
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     // Here you would typically send the data to your backend
     console.log({

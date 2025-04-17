@@ -50,7 +50,7 @@ function LoginPage() {
     try {
       // Here you would implement your actual login logic
       // For now, we'll just simulate a delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       const response = await axios.post(
         "https://findmypg-i01x.onrender.com/api/login",
         {

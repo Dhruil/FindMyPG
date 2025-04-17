@@ -1030,7 +1030,7 @@ export function PgListing() {
   useEffect(
     (resolve) => {
       getPG_Details();
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 1500);
     },
     [true]
   );

@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "../hooks/use-toast";
 import { useAuth } from "../context/AuthContext";
 import axios from "axios";
+import { format } from "date-fns";
 
 const BookingReq = ({ booking }) => {
   const { toast } = useToast();
@@ -198,7 +199,9 @@ const BookingReq = ({ booking }) => {
                       <td className="p-3 font-medium">{booking.pg_name}</td>
                       <td className="p-3">{booking.room_type}</td>
                       <td className="p-3">{booking.user_name || "Guest"}</td>
-                      <td className="p-3">{booking.check_in_date}</td>
+                      <td className="p-3">
+                        {format(new Date(booking.check_in_date), "yyyy-MM-dd")}
+                      </td>
                       <td className="p-3 font-medium">{booking.amount}</td>
                       <td className="p-3">
                         <Badge className={getStatusColor(booking.status)}>
@@ -314,15 +317,24 @@ const BookingReq = ({ booking }) => {
                 <div className="space-y-2">
                   <p className="text-sm">
                     <span className="font-medium">Booking Date:</span>{" "}
-                    {selectedBooking.booking_date}
+                    {format(
+                      new Date(selectedBooking.booking_date),
+                      "yyyy-MM-dd"
+                    )}
                   </p>
                   <p className="text-sm">
                     <span className="font-medium">Check-in:</span>{" "}
-                    {selectedBooking.check_in_date}
+                    {format(
+                      new Date(selectedBooking.check_in_date),
+                      "yyyy-MM-dd"
+                    )}
                   </p>
                   <p className="text-sm">
                     <span className="font-medium">Check-out:</span>{" "}
-                    {selectedBooking.check_out_date}
+                    {format(
+                      new Date(selectedBooking.check_out_date),
+                      "yyyy-MM-dd"
+                    )}
                   </p>
                   <div>
                     <Badge className={getStatusColor(selectedBooking.status)}>

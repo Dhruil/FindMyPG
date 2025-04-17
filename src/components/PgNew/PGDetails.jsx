@@ -180,7 +180,7 @@ export function PgDetails() {
   useEffect((resolve) => {
     window.scrollTo(top);
     getPG_Details();
-    setTimeout(resolve, 1000);
+    setTimeout(resolve, 1500);
   }, []);
 
   const [tempDetails, setTempDetails] = useState(pgDetails);
@@ -242,7 +242,7 @@ export function PgDetails() {
     // }
     await new Promise((resolve) => {
       updatePGDetails(formData);
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 1500);
     });
     // setPgDetails(tempDetails);
     const fullAddress = `${tempDetails.street}, ${tempDetails.area},    ${tempDetails.city}`;
@@ -537,7 +537,7 @@ export function PgDetails() {
     // For demonstration purposes, we'll redirect back to the listings
     await new Promise((resolve) => {
       deletePgDetails(pgId);
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 3000);
       navigate("/owner-dashboard");
     });
     setPgToDelete(null);
@@ -547,7 +547,7 @@ export function PgDetails() {
     console.log(roomId);
     await new Promise((resolve) => {
       deletePgDetails(roomId);
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 3000);
     });
     setPgDetails((prev) => ({
       ...prev,

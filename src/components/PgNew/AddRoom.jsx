@@ -95,7 +95,7 @@ export function AddRoom() {
       roomData.append("images[]", images[i]);
     }
     inserRoomData(roomData);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     // Navigate back to the PG details page
     navigate(`/owner-dashboard/pg/${id}`);

@@ -127,7 +127,7 @@ export default function UserDashboard() {
       fetchSavedPGs();
       fetchUserBookings(user.user_id);
       setLoading(false);
-    }, 500);
+    }, 1500);
   }, []);
   const handleEdit = () => {
     setIsEditing(true);
@@ -171,7 +171,7 @@ export default function UserDashboard() {
     }
     await new Promise((resolve) => {
       updateUserDetails(formData);
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 1500);
     });
     console.log("Saving user info:", userInfo);
     console.log("avatar :", avatar);
@@ -618,8 +618,18 @@ export default function UserDashboard() {
                         >
                           <td className="p-3 font-medium">{booking.pg_name}</td>
                           <td className="p-3">{booking.room_type}</td>
-                          <td className="p-3">{booking.check_in_date}</td>
-                          <td className="p-3">{booking.check_out_date}</td>
+                          <td className="p-3">
+                            {format(
+                              new Date(booking.check_in_date),
+                              "yyyy-MM-dd"
+                            )}
+                          </td>
+                          <td className="p-3">
+                            {format(
+                              new Date(booking.check_out_date),
+                              "yyyy-MM-dd"
+                            )}
+                          </td>
                           <td className="p-3 font-medium">{booking.amount}</td>
                           <td className="p-3">
                             <Badge className={getStatusColor(booking.status)}>
@@ -724,21 +734,30 @@ export default function UserDashboard() {
                     <FaRegCalendarAlt className="text-green-500 mr-2" />
                     <p className="text-sm">
                       <span className="font-medium">Booking Date:</span>{" "}
-                      {bookingDetailsModal.booking_date}
+                      {format(
+                        new Date(bookingDetailsModal.booking_date),
+                        "yyyy-MM-dd"
+                      )}
                     </p>
                   </div>
                   <div className="flex items-center">
                     <FaCalendarAlt className="text-blue-500 mr-2" />
                     <p className="text-sm">
                       <span className="font-medium">Check-in:</span>{" "}
-                      {bookingDetailsModal.check_in_date}
+                      {format(
+                        new Date(bookingDetailsModal.check_in_date),
+                        "yyyy-MM-dd"
+                      )}
                     </p>
                   </div>
                   <div className="flex items-center">
                     <FaCalendarAlt className="text-red-500 mr-2" />
                     <p className="text-sm">
                       <span className="font-medium">Check-out:</span>{" "}
-                      {bookingDetailsModal.check_out_date}
+                      {format(
+                        new Date(bookingDetailsModal.check_out_date),
+                        "yyyy-MM-dd"
+                      )}
                     </p>
                   </div>
                   <div>

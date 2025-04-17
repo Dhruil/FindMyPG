@@ -405,7 +405,7 @@ export default function PGDetailsPage() {
     setTimeout(() => {
       setPgData(samplePG[0]);
       setLoading(false);
-    }, 500);
+    }, 1500);
   }, [id]);
   console.log(pgData);
   if (loading) {
