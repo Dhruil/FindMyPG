@@ -337,7 +337,7 @@ export function PgDetails() {
     console.log(tempRoomData);
     await new Promise((resolve) => {
       updateRoomDetails(roomData);
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 3000);
     });
 
     setPgDetails((prev) => ({
@@ -537,8 +537,10 @@ export function PgDetails() {
     // For demonstration purposes, we'll redirect back to the listings
     await new Promise((resolve) => {
       deletePgDetails(pgId);
-      setTimeout(resolve, 3000);
-      navigate("/owner-dashboard");
+      setTimeout(() => {
+        navigate("/owner-dashboard");
+        resolve();
+      }, 3000);
     });
     setPgToDelete(null);
   };
